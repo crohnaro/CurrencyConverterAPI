@@ -8,13 +8,23 @@
     <title>CurrencyConverter</title>
 </head>
 <body>
-    <main>
-        <div>
-            <h1>Currency Converter</h1>
+    <main id="mainSection">
+            
+        <h1>Currency Converter</h1>
+            
+            <div id="currencies">
+                <select name="fromCurrencie" id="fromCurrencie">
+                    <option value="">Teste</option>
+                </select>
+                <select name="fromCurriencie" id="toCurrencie">
+                    <option value="">Teste</option>
+                </select>
+            </div>
+
             <label>Digite o valor para conversão</label>
             <input name="value" type="number" id="value">
-            <button>Calcular</button>
-        </div>    
+            <button id="convert">Calcular</button>
+             
     </main>
 
     <script src="js/main.js"></script>
