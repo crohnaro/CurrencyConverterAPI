@@ -65,6 +65,25 @@ body{
     margin: 0 auto;
 }
 
+#padding input{
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#padding select{
+    border: none;
+    border-radius: 5px;
+    text-align: center ;
+}
+
+#padding option{
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    background-color: #217a69;
+}
+
 #convert{
     background-image: linear-gradient(to right, #2FAE83 0%, #217a69  51%, #d0fff6  100%);
     margin: 10px;
@@ -94,6 +113,7 @@ body{
 #results{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 #result{
