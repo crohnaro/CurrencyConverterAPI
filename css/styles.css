@@ -73,6 +73,7 @@ body{
 
 #padding select{
     border: none;
+    width: 200px;
     border-radius: 5px;
     text-align: center ;
 }
@@ -120,5 +121,19 @@ body{
     height: 45px
 }
 
+@media (max-width:768px){
+    #currencies{
+        flex-direction: column;
+    }
+
+    #results{
+        flex-direction: column
+    }
+
+    #padding{
+        padding: 0
+    }
 
 
+
+}
