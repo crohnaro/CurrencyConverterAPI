@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>CurrencyConverter</title>
 </head>
 <body>
     <main id="mainSection">
-            
-        <h1>Currency Converter</h1>
-            
+        <div id="padding"> 
+            <h1>Currency Converter</h1>
+
+            <h4>Selecione as moedas para conversão</h4>
+                
             <div id="currencies">
-                <select name="fromCurrencie" id="fromCurrencie">
-                    <option value="">Teste</option>
+                <h4>Valor: </h4>
+                <input name="value" type="number" id="amount">
+                <h4>De</h4> 
+                <select id="fromCurrencie">
+
                 </select>
-                <select name="fromCurriencie" id="toCurrencie">
-                    <option value="">Teste</option>
+                <h4> Para </h4>
+                <select id="toCurriencie">
+                    
                 </select>
             </div>
-
-            <label>Digite o valor para conversão</label>
-            <input name="value" type="number" id="value">
-            <button id="convert">Calcular</button>
-             
+            
+            <div id="results">
+                <h4>Resultado:</h4>
+                <input id="result">
+                <button id="convert">Calcular</button>
+            </div>   
+        </div>     
     </main>
 
     <script src="js/main.js"></script>
