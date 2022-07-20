@@ -11,31 +11,37 @@
     <title>CurrencyConverter</title>
 </head>
 <body>
+
     <main id="mainSection">
-        <div id="padding"> 
-            <h1>Currency Converter</h1>
-
-            <h4>Selecione as moedas para conversão</h4>
-                
-            <div id="currencies">
-                <h4>Valor: </h4>
-                <input name="value" type="number" id="amount">
-                <h4>De</h4> 
-                <select id="fromCurrencie">
-
-                </select>
-                <h4> Para </h4>
-                <select id="toCurriencie">
+        
+        
+        
+        <div id="container">
+            <div id="padding"> 
+                <h1>Currency Converter</h1>
+                <h4>Selecione as moedas para conversão</h4>
                     
-                </select>
+                <div id="currencies">
+                    <h4>Valor: </h4>
+                    <input name="value" type="number" id="amount">
+                    <h4>De</h4> 
+                    <select id="fromCurrencie">
+
+                    </select>
+                    <h4> Para </h4>
+                    <select id="toCurriencie">
+
+                    </select>
+                </div>
+                
+                <div id="results">
+                    <h4>Resultado:</h4>
+                    <input id="result">
+                    <button id="convert">Calcular</button>
+                </div> 
+                  
             </div>
-            
-            <div id="results">
-                <h4>Resultado:</h4>
-                <input id="result">
-                <button id="convert">Calcular</button>
-            </div>   
-        </div>     
+        </div>         
     </main>
 
     <script src="js/main.js"></script>
