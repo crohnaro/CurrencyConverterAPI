@@ -1,20 +1,32 @@
-/*const fetchCurrencies = () => {
+const fetchCurrencies = () => {
     const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`
     
     fetch(currenciesUrl)
         .then(response => response.json())
         .then (currencies =>{
-            console.log(currencies)
+          const currenciesStringfy = JSON.stringify(currencies)
+          const currenciesObj = JSON.parse(currenciesStringfy)
+          const currenciesResults = currenciesObj.results
+          const currenciesKeys = Object.keys(currenciesResults)
+
+          
+
+          for(let i = 0; i < currenciesKeys.length; i++) {
+            console.log(currenciesKeys[i])
+          }
+          
+          /*console.log(Object.keys(currenciesResults))
+          console.log(Object.values(currenciesResults))*/
         })
     
         
 
 }
 
-fetchCurrencies()*/
+fetchCurrencies()
 
 
-const myList = document.querySelector("select");
+/*const myList = document.querySelector("select");
 const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`
 
 fetch(currenciesUrl)
@@ -47,6 +59,8 @@ fetch(currenciesUrl)
     p.appendChild(document.createTextNode(`Error: ${error.message}`));
     document.body.insertBefore(p, myList);
   });
+
+*/
 
 
 /*let dropdown = document.getElementById('fromCurrencie');
