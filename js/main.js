@@ -17,7 +17,6 @@ const fetchCurrencies = () => {
           
           for(let i = 0; i < currenciesKeys.length; i++){
             
-            console.log(fromCurrencie)
 
             const opt = document.createElement("option")
             opt.value = currenciesKeys[i].id
@@ -27,20 +26,15 @@ const fetchCurrencies = () => {
             opt1.value = currenciesKeys[i].id
             opt1.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
             
+            
+
+
             fromCurrencie.appendChild(opt)
             toCurrencie.appendChild(opt1)
           }
-
-          
-          
         })
-    
 } 
 fetchCurrencies()
-
-
-
-
 
 
 /*const myList = document.querySelector("select");
