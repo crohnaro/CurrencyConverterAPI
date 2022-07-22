@@ -1,29 +1,46 @@
+//Function responsavel por popular o select da page via API
+const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`
+
 const fetchCurrencies = () => {
-    const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`
-    
-    fetch(currenciesUrl)
+    fetch(currenciesUrl) // usando fetch para pegar os dados via JSON
         .then(response => response.json())
         .then (currencies =>{
+
           const currenciesStringfy = JSON.stringify(currencies)
           const currenciesObj = JSON.parse(currenciesStringfy)
           const currenciesResults = currenciesObj.results
-          const currenciesKeys = Object.keys(currenciesResults)
+          const currenciesKeys = Object.values(currenciesResults)
 
+
+          const fromCurrencie = document.querySelector('#fromCurrencie')
+          const toCurrencie = document.querySelector('#toCurrencie')
           
+          for(let i = 0; i < currenciesKeys.length; i++){
+            
+            console.log(fromCurrencie)
 
-          for(let i = 0; i < currenciesKeys.length; i++) {
-            console.log(currenciesKeys[i])
+            const opt = document.createElement("option")
+            opt.value = currenciesKeys[i].id
+            opt.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
+            
+            const opt1 = document.createElement("option")
+            opt1.value = currenciesKeys[i].id
+            opt1.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
+            
+            fromCurrencie.appendChild(opt)
+            toCurrencie.appendChild(opt1)
           }
+
           
-          /*console.log(Object.keys(currenciesResults))
-          console.log(Object.values(currenciesResults))*/
+          
         })
     
-        
-
-}
-
+} 
 fetchCurrencies()
+
+
+
+
 
 
 /*const myList = document.querySelector("select");
