@@ -1,13 +1,20 @@
-//Function responsavel por popular o select da page via API
-const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`
+
+const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd` // Variavel global responsavel por pegar a lista de Currencies da API
+const calcCurrencieUrl = ``
 
 const Main = {
   
   init : function() {
     this.fetchCurrencies()
+    this.calcCurrency()
   },
 
-  fetchCurrencies: function() {
+
+  calcCurrency: function(){
+
+  },
+
+  fetchCurrencies: function() { //Function responsavel por popular o select da page via API
     fetch(currenciesUrl) // usando fetch para pegar os dados via JSON
         .then(response => response.json())
         .then (currencies =>{
