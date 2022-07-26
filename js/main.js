@@ -1,59 +1,61 @@
-
-const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd` // Variavel global responsavel por pegar a lista de Currencies da API
-const calcCurrencieUrl = ``
+const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`; // Variavel global responsavel por pegar a lista de Currencies da API
 
 const Main = {
-  
-  init : function() {
-    this.fetchCurrencies()
-    this.calcCurrency()
+  init: function () {
+    this.fetchCurrencies();
   },
 
-
-  calcCurrency: function(){
-
-  },
-
-  fetchCurrencies: function() { //Function responsavel por popular o select da page via API
+  fetchCurrencies: function () {
+    //Function responsavel por popular o select da page via API
     fetch(currenciesUrl) // usando fetch para pegar os dados via JSON
-        .then(response => response.json())
-        .then (currencies =>{
+      .then((response) => response.json())
+      .then((currencies) => {
+        const currenciesStringfy = JSON.stringify(currencies);
+        const currenciesObj = JSON.parse(currenciesStringfy);
+        const currenciesResults = currenciesObj.results;
+        const currenciesKeys = Object.values(currenciesResults);
+        const fromCurrencie = document.querySelector("#fromCurrencie");
+        const toCurrencie = document.querySelector("#toCurrencie");
 
-          const currenciesStringfy = JSON.stringify(currencies)
-          const currenciesObj = JSON.parse(currenciesStringfy)
-          const currenciesResults = currenciesObj.results
-          const currenciesKeys = Object.values(currenciesResults)
+        console.log(fromCurrencie.value);
 
+        for (let i = 0; i < currenciesKeys.length; i++) {
+          const opt = document.createElement("option");
+          opt.value = currenciesKeys[i].id;
+          opt.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`;
 
-          const fromCurrencie = document.querySelector('#fromCurrencie')
-          const toCurrencie = document.querySelector('#toCurrencie')
-          
-          for(let i = 0; i < currenciesKeys.length; i++){
-            
+          const opt1 = document.createElement("option");
+          opt1.value = currenciesKeys[i].id;
+          opt1.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`;
 
-            const opt = document.createElement("option")
-            opt.value = currenciesKeys[i].id
-            opt.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
-            
-            const opt1 = document.createElement("option")
-            opt1.value = currenciesKeys[i].id
-            opt1.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
-            
-            
+          fromCurrencie.appendChild(opt);
+          toCurrencie.appendChild(opt1);
+        }
 
+        
+        const fromCurrValue = fromCurrencie.value
+        const toCurrValue = toCurrencie.value
+        const currURL = fromCurrValue + '_' + toCurrValue
 
-            fromCurrencie.appendChild(opt)
-            toCurrencie.appendChild(opt1)
-          }
-        })
-  } 
+        document.getElementById("convert").addEventListener("click", function(){
+
+          const calcCurrencieUrl = `https://free.currconv.com/api/v7/convert?q=${currURL}&compact=ultra&apiKey=cc2ed161120ff7b607bd`;
+          fetch(calcCurrencieUrl)
+          .then((response) => response.json())
+          .then((currValue)=>{
+            console.log(currValue);
+          }) 
+        });
+
+      });
+
+      
+  },
+
   
-}
+};
 
-Main.init()
-
-
-
+Main.init();
 
 /*const myList = document.querySelector("select");
 const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`
@@ -90,7 +92,6 @@ fetch(currenciesUrl)
   });
 
 */
-
 
 /*let dropdown = document.getElementById('fromCurrencie');
 dropdown.length = 0;

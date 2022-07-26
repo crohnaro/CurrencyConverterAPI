@@ -1,49 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>CurrencyConverter</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <main id="mainSection">
-        
-        
-        
-        <div id="container">
-            <div id="padding"> 
-                <h1>Currency Converter</h1>
-                <h4>Selecione as moedas para conversão</h4>
-                    
-                <div id="currencies">
-                    <h4>Valor: </h4>
-                    <input name="value" type="number" id="amount">
-                    <h4>De</h4> 
-                    <select id="fromCurrencie">
-                        
-                    </select>
-                    <h4> Para </h4>
-                    <select id="toCurrencie">
-                    
-                    </select>
-                </div>
-                
-                <div id="results">
-                    <h4>Resultado:</h4>
-                    <input id="result">
-                    <button id="convert">Calcular</button>
-                </div> 
+      <div id="container">
+        <div id="padding">
+          <h1>Currency Converter</h1>
+          <h4>Selecione as moedas para conversão</h4>
 
-            </div>
-        </div>         
+          <div id="currencies">
+            <h4>Valor:</h4>
+            <input name="value" type="number" id="amount" />
+            <h4>De</h4>
+            <select id="fromCurrencie"></select>
+            <h4>Para</h4>
+            <select id="toCurrencie"></select>
+          </div>
+
+          <div id="results">
+            <h4>Resultado:</h4>
+            <input id="result" />
+            <button id="convert">Calcular</button>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
