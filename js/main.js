@@ -3,7 +3,7 @@ const fromCurrencie = document.querySelector("#fromCurrencie");
 const toCurrencie = document.querySelector("#toCurrencie");
 
 
-const autalizarSelect = () => {
+const attSelect = () => {
   if (fromCurrencie && toCurrencie) {
     let fromCurrVal = fromCurrencie.options[fromCurrencie.selectedIndex];
     let fromCurrValURL = fromCurrVal.value;
@@ -65,7 +65,7 @@ const fetchCurrencies = () => {
     })
 }
 fetchCurrencies()
-autalizarSelect()
+attSelect()
 
 
 //const currURL = fromCurrValue + "_" + toCurrValue;
