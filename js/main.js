@@ -3,7 +3,7 @@ const fromCurrencie = document.querySelector("#fromCurrencie");
 const toCurrencie = document.querySelector("#toCurrencie");
 
 
-const attSelect = () => {
+/*const attSelect = () => {
   if (fromCurrencie && toCurrencie) {
     let fromCurrVal = fromCurrencie.options[fromCurrencie.selectedIndex];
     let fromCurrValURL = fromCurrVal.value;
@@ -12,7 +12,7 @@ const attSelect = () => {
 
     return (fromCurrValURL, toCurrValURL)
   }
-};
+};*/
 
 const optCurr = document.querySelectorAll('.optCurr')
 const valueInput = document.querySelector('#result')
@@ -31,12 +31,13 @@ document.getElementById("convert").addEventListener("click", function () {
     })
   }
   
-  console.log(currUrl)
   const calcCurrencieUrl = `https://free.currconv.com/api/v7/convert?q=${currUrl}&compact=ultra&apiKey=cc2ed161120ff7b607bd`;
-  fetch(currenciesUrl)
+  fetch(calcCurrencieUrl)
     .then((response) => response.json())
     .then((currValue) => {
-      console.log(calcCurrencieUrl)
+      const currValKeys = Object.values(currValue)
+      console.log(currValKeys)
+      
     });
 });
 
@@ -65,7 +66,7 @@ const fetchCurrencies = () => {
     })
 }
 fetchCurrencies()
-attSelect()
+/*attSelect()*/
 
 
 //const currURL = fromCurrValue + "_" + toCurrValue;
