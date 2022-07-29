@@ -1,6 +1,9 @@
 const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=cc2ed161120ff7b607bd`; // Variavel global responsavel por pegar a lista de Currencies da API
 const fromCurrencie = document.querySelector("#fromCurrencie");
 const toCurrencie = document.querySelector("#toCurrencie");
+const optCurr = document.querySelectorAll(".optCurr");
+const result = document.querySelector("#result");
+const amount = document.querySelector("#amount");
 
 
 /*const attSelect = () => {
@@ -14,30 +17,28 @@ const toCurrencie = document.querySelector("#toCurrencie");
   }
 };*/
 
-const optCurr = document.querySelectorAll('.optCurr')
-const valueInput = document.querySelector('#result')
-
-
 document.getElementById("convert").addEventListener("click", function () {
-  let currUrl = '' // resetar o value do option para fazer nova consulta
-  if (optCurr.length){ //checar se campos estão preenchidos
-    currUrl = ''
-    optCurr.forEach((opt)=>{
-      if (currUrl == ''){
-        currUrl += opt.value  
-      }else{
-        currUrl = currUrl + "_" + opt.value
-      }   
-    })
+  let currUrl = ""; // resetar o value do option para fazer nova consulta
+  if (optCurr.length) {
+    //checar se campos estão preenchidos
+    currUrl = "";
+    optCurr.forEach((opt) => {
+      if (currUrl == "") {
+        currUrl += opt.value;
+      } else {
+        currUrl = currUrl + "_" + opt.value;
+      }
+    });
   }
-  
+
   const calcCurrencieUrl = `https://free.currconv.com/api/v7/convert?q=${currUrl}&compact=ultra&apiKey=cc2ed161120ff7b607bd`;
   fetch(calcCurrencieUrl)
     .then((response) => response.json())
     .then((currValue) => {
-      const currValKeys = Object.values(currValue)
-      console.log(currValKeys)
-      
+      const currValKeys = Object.values(currValue);
+      const currValFloat = parseFloat(currValKeys)
+      const calcCurrResult = amount.value * currValFloat
+      console.log(calcCurrResult.toFixed(2))
     });
 });
 
@@ -46,28 +47,27 @@ const fetchCurrencies = () => {
   fetch(currenciesUrl) // usando fetch para pegar os dados via JSON
     .then((response) => response.json())
     .then((currencies) => {
-      const currenciesStringfy = JSON.stringify(currencies)
-      const currenciesObj = JSON.parse(currenciesStringfy)
-      const currenciesResults = currenciesObj.results
-      const currenciesKeys = Object.values(currenciesResults)
+      const currenciesStringfy = JSON.stringify(currencies);
+      const currenciesObj = JSON.parse(currenciesStringfy);
+      const currenciesResults = currenciesObj.results;
+      const currenciesKeys = Object.values(currenciesResults);
 
       for (let i = 0; i < currenciesKeys.length; i++) {
-        const opt = document.createElement("option")
-        opt.value = currenciesKeys[i].id
-        opt.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
+        const opt = document.createElement("option");
+        opt.value = currenciesKeys[i].id;
+        opt.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`;
 
-        const opt1 = document.createElement("option")
-        opt1.value = currenciesKeys[i].id
-        opt1.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`
+        const opt1 = document.createElement("option");
+        opt1.value = currenciesKeys[i].id;
+        opt1.innerHTML = `${currenciesKeys[i].id} - ${currenciesKeys[i].currencyName}`;
 
-        fromCurrencie.appendChild(opt)
-        toCurrencie.appendChild(opt1)
+        fromCurrencie.appendChild(opt);
+        toCurrencie.appendChild(opt1);
       }
-    })
-}
-fetchCurrencies()
+    });
+};
+fetchCurrencies();
 /*attSelect()*/
-
 
 //const currURL = fromCurrValue + "_" + toCurrValue;
 
