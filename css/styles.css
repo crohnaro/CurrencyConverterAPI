@@ -124,7 +124,7 @@ body {
   height: 45px;
 }
 
-@media (max-width: 878px) {
+@media (max-width: 879px) {
   #currencies {
     flex-direction: column;
   }
