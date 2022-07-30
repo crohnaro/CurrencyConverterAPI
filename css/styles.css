@@ -124,7 +124,7 @@ body {
   height: 45px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 878px) {
   #currencies {
     flex-direction: column;
   }
@@ -134,6 +134,6 @@ body {
   }
 
   #padding {
-    padding: 0;
+    padding: 15px;
   }
 }
