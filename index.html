@@ -11,31 +11,45 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/691a9a9ca9.js"
+      crossorigin="anonymous"
+    ></script>
     <title>CurrencyConverter</title>
   </head>
   <body>
     <main id="mainSection">
+      <h1>Currency Converter</h1>
       <div id="container">
         <div id="padding">
-          <h1>Currency Converter</h1>
-          <h4>Selecione as moedas para conversão</h4>
+          
+          
 
           <div id="currencies">
-            <h4>Valor:</h4>
-            <input name="value" type="number" id="amount" />
-            <h4>De</h4>
-            <select id="fromCurrencie" class="optCurr">
-              <option value="Escolha uma moeda">Escolha uma moeda</option>
-            </select>
-            <h4>Para</h4>
-            <select id="toCurrencie" class="optCurr">
-              <option value="Escolha uma moeda">Escolha uma moeda</option>
-            </select>
+            <div class="inputFields">
+              <h4>Valor:</h4>
+              <input name="value" type="number" id="amount" />
+            </div>
+            <div class="inputFields">
+              <h4>De</h4>
+              <select id="fromCurrencie" class="optCurr">
+                <option value="Escolha uma moeda">Escolha uma moeda</option>
+              </select>
+            </div>
+            <div id="switchButton">
+              <i id="switch" class="fas fa-sync"></i>
+            </div>
+            <div class="inputFields">
+              <h4>Para</h4>
+              <select id="toCurrencie" class="optCurr">
+                <option value="Escolha uma moeda">Escolha uma moeda</option>
+              </select>
+            </div>
           </div>
 
           <div id="results">
-            <h4>Resultado:</h4>
-            <input id="result" />
+            <h3>Resultado:</h3>
+            <div id="result"></div>
             <button id="convert">Calcular</button>
           </div>
         </div>
