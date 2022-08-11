@@ -11,7 +11,6 @@ const fetchCurrencies = () => {
   fetch(currenciesUrl) // usando fetch para pegar os dados via JSON
     .then((response) => response.json())
     .then((currencies) => {
-      console.log(currencies);
 
       const currenciesStringfy = JSON.stringify(currencies); // Foi feito o strinfigy e parse para poder pegar cada objeto
       const currenciesObj = JSON.parse(currenciesStringfy);
@@ -65,6 +64,25 @@ document.getElementById("switch").addEventListener("click", function () {
         const currValKeys = Object.values(currValue);
         const currValFloat = parseFloat(currValKeys);
         const calcCurrResult = amount.value * currValFloat;
-        document.querySelector("#result").innerHTML = calcCurrResult.toFixed(2);
+        document.querySelector("#result").innerHTML =
+          toCurrencie.value + " " + calcCurrResult.toFixed(2);
+        document.querySelector("#resultCurr").innerHTML =
+          amount.value + " " + fromCurrencie.value + " = ";
+        document.querySelector("#resultFromCurr").innerHTML =
+          " 1 " +
+          " " +
+          fromCurrencie.value +
+          " = " +
+          currValFloat * 1 +
+          " " +
+          toCurrencie.value;
+        document.querySelector("#resultToCurr").innerHTML =
+          " 1 " +
+          " " +
+          toCurrencie.value +
+          " = " +
+          1 / currValFloat.toFixed(2) +
+          " " +
+          fromCurrencie.value;
       });
   });

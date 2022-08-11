@@ -20,41 +20,47 @@
   <body>
     <main id="mainSection">
       <h1>Currency Converter</h1>
-      <div id="container">
-        <div id="padding">
-          
-          
-
-          <div id="currencies">
-            <div class="inputFields">
-              <h4>Valor:</h4>
-              <input name="value" type="number" id="amount" />
+    </main>
+    <div id="container">
+      <div id="padding">
+        <div id="currencies">
+          <div class="inputFields">
+            <h4>Valor:</h4>
+            <input name="value" type="number" id="amount" />
+          </div>
+          <div class="inputFields">
+            <h4>De</h4>
+            <select id="fromCurrencie" class="optCurr">
+              <option value="Escolha uma moeda">Escolha uma moeda</option>
+            </select>
+          </div>
+          <div id="switchButton">
+            <i id="switch" class="fas fa-sync"></i>
+          </div>
+          <div class="inputFields">
+            <h4>Para</h4>
+            <select id="toCurrencie" class="optCurr">
+              <option value="Escolha uma moeda">Escolha uma moeda</option>
+            </select>
+          </div>
+        </div>
+        <div id="resultsContainer">
+          <div id="results">
+            <div>
+              <div id="resultCurr"></div>
+              <div id="result"></div>
             </div>
-            <div class="inputFields">
-              <h4>De</h4>
-              <select id="fromCurrencie" class="optCurr">
-                <option value="Escolha uma moeda">Escolha uma moeda</option>
-              </select>
-            </div>
-            <div id="switchButton">
-              <i id="switch" class="fas fa-sync"></i>
-            </div>
-            <div class="inputFields">
-              <h4>Para</h4>
-              <select id="toCurrencie" class="optCurr">
-                <option value="Escolha uma moeda">Escolha uma moeda</option>
-              </select>
+            <div>
+              <div id="resultFromCurr"></div>
+              <div id="resultToCurr"></div>
             </div>
           </div>
-
-          <div id="results">
-            <h3>Resultado:</h3>
-            <div id="result"></div>
+          <div>
             <button id="convert">Calcular</button>
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <script src="js/main.js"></script>
   </body>
