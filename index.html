@@ -15,22 +15,23 @@
       src="https://kit.fontawesome.com/691a9a9ca9.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>CurrencyConverter</title>
   </head>
   <body>
     <main id="mainSection">
-      <h1>Currency Converter</h1>
+      <h1 class="headline">Currency Converter</h1>
     </main>
     <div id="container">
       <div id="padding">
         <div id="currencies">
           <div class="inputFields">
-            <h4>Valor:</h4>
-            <input name="value" type="number" id="amount" />
+            <h4>Valor</h4>
+            <input name="value" type="number" id="amount" required />
           </div>
           <div class="inputFields">
             <h4>De</h4>
-            <select id="fromCurrencie" class="optCurr">
+            <select id="fromCurrencie" class="optCurr" required>
               <option value="Escolha uma moeda">Escolha uma moeda</option>
             </select>
           </div>
@@ -39,7 +40,7 @@
           </div>
           <div class="inputFields">
             <h4>Para</h4>
-            <select id="toCurrencie" class="optCurr">
+            <select id="toCurrencie" class="optCurr" required>
               <option value="Escolha uma moeda">Escolha uma moeda</option>
             </select>
           </div>
@@ -63,5 +64,6 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/scrollReveal.js"></script>
   </body>
 </html>
