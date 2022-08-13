@@ -41,6 +41,11 @@ document.getElementById("switch").addEventListener("click", function () {
 }),
   // Function que adicionar evento de click e a partir dele realizar o calculo
   document.getElementById("convert").addEventListener("click", function () {
+    document.querySelector(".lds-ring").classList.add("active");
+    document.querySelector("#result").innerHTML = "";
+    document.querySelector("#resultCurr").innerHTML = "";
+    document.querySelector("#resultFromCurr").innerHTML = "";
+    document.querySelector("#resultToCurr").innerHTML = "";
     let currUrl = ""; // resetar o value do option para fazer nova consulta
     if (optCurr.length) {
       //checar se campos estão preenchidos
@@ -54,35 +59,37 @@ document.getElementById("switch").addEventListener("click", function () {
         }
       });
     }
-
-    //function responsavel por fazer o calculo baseado nas moedas selecionadas
-    const calcCurrencieUrl = `https://free.currconv.com/api/v7/convert?q=${currUrl}&compact=ultra&apiKey=cc2ed161120ff7b607bd`;
-    fetch(calcCurrencieUrl)
-      .then((response) => response.json())
-      .then((currValue) => {
-        const currValKeys = Object.values(currValue);
-        const currValFloat = parseFloat(currValKeys);
-        const calcCurrResult = amount.value * currValFloat;
-        const toCurrby1 = 1 / currValFloat;
-        document.querySelector("#result").innerHTML =
-          toCurrencie.value + " " + calcCurrResult.toFixed(2);
-        document.querySelector("#resultCurr").innerHTML =
-          amount.value + " " + fromCurrencie.value + " = ";
-        document.querySelector("#resultFromCurr").innerHTML =
-          " 1 " +
-          " " +
-          fromCurrencie.value +
-          " = " +
-          currValFloat * 1 +
-          " " +
-          toCurrencie.value;
-        document.querySelector("#resultToCurr").innerHTML =
-          " 1 " +
-          " " +
-          toCurrencie.value +
-          " = " +
-          toCurrby1.toFixed(6) +
-          " " +
-          fromCurrencie.value;
-      });
+    setTimeout(() => {
+      //function responsavel por fazer o calculo baseado nas moedas selecionadas
+      const calcCurrencieUrl = `https://free.currconv.com/api/v7/convert?q=${currUrl}&compact=ultra&apiKey=cc2ed161120ff7b607bd`;
+      fetch(calcCurrencieUrl)
+        .then((response) => response.json())
+        .then((currValue) => {
+          const currValKeys = Object.values(currValue);
+          const currValFloat = parseFloat(currValKeys);
+          const calcCurrResult = amount.value * currValFloat;
+          const toCurrby1 = 1 / currValFloat;
+          document.querySelector("#result").innerHTML =
+            toCurrencie.value + " " + calcCurrResult.toFixed(2);
+          document.querySelector("#resultCurr").innerHTML =
+            amount.value + " " + fromCurrencie.value + " = ";
+          document.querySelector("#resultFromCurr").innerHTML =
+            " 1 " +
+            " " +
+            fromCurrencie.value +
+            " = " +
+            currValFloat * 1 +
+            " " +
+            toCurrencie.value;
+          document.querySelector("#resultToCurr").innerHTML =
+            " 1 " +
+            " " +
+            toCurrencie.value +
+            " = " +
+            toCurrby1.toFixed(6) +
+            " " +
+            fromCurrencie.value;
+        });
+      document.querySelector(".lds-ring").classList.remove("active");
+    }, 2000);
   });
